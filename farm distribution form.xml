@@ -1,0 +1,104 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>farm distribution form</h:title>
+    <model>
+      <instance>
+        <data id="build_farm-distribution-form_1494910564">
+          <meta>
+            <instanceID/>
+          </meta>
+          <photo_of_farm/>
+          <gps_coordinates/>
+          <type_of_crops_or_animals/>
+          <type_of_farming/>
+          <size_of_the_farm/>
+          <number_of_employees/>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="English">
+          <text id="/data/photo_of_farm:label">
+            <value>Photo Of Farm</value>
+          </text>
+          <text id="/data/gps_coordinates:label">
+            <value>GPS Cordinates</value>
+          </text>
+          <text id="/data/type_of_crops_or_animals:label">
+            <value>Type Of Crops or Animals</value>
+          </text>
+          <text id="/data/type_of_farming:label">
+            <value>Type Of Farming</value>
+          </text>
+          <text id="/data/type_of_farming:option0">
+            <value>Subsistence Farming</value>
+          </text>
+          <text id="/data/type_of_farming:option1">
+            <value>Commercial Farming</value>
+          </text>
+          <text id="/data/size_of_the_farm:label">
+            <value>Size Of The Farm</value>
+          </text>
+          <text id="/data/size_of_the_farm:option0">
+            <value>Small Scale</value>
+          </text>
+          <text id="/data/size_of_the_farm:option1">
+            <value>Medium Scale</value>
+          </text>
+          <text id="/data/size_of_the_farm:option2">
+            <value>Large Scale</value>
+          </text>
+          <text id="/data/number_of_employees:label">
+            <value>Number Of Employees</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/photo_of_farm" type="binary"/>
+      <bind nodeset="/data/gps_coordinates" type="geopoint"/>
+      <bind nodeset="/data/type_of_crops_or_animals" type="string"/>
+      <bind nodeset="/data/type_of_farming" type="select1"/>
+      <bind nodeset="/data/size_of_the_farm" type="select1"/>
+      <bind nodeset="/data/number_of_employees" type="int"/>
+    </model>
+  </h:head>
+  <h:body>
+    <upload ref="/data/photo_of_farm" mediatype="image/*">
+      <label ref="jr:itext('/data/photo_of_farm:label')"/>
+    </upload>
+    <input ref="/data/gps_coordinates">
+      <label ref="jr:itext('/data/gps_coordinates:label')"/>
+    </input>
+    <input ref="/data/type_of_crops_or_animals">
+      <label ref="jr:itext('/data/type_of_crops_or_animals:label')"/>
+    </input>
+    <select1 ref="/data/type_of_farming">
+      <label ref="jr:itext('/data/type_of_farming:label')"/>
+      <item>
+        <label ref="jr:itext('/data/type_of_farming:option0')"/>
+        <value>subsistence</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/type_of_farming:option1')"/>
+        <value>commercial</value>
+      </item>
+    </select1>
+    <select1 ref="/data/size_of_the_farm">
+      <label ref="jr:itext('/data/size_of_the_farm:label')"/>
+      <item>
+        <label ref="jr:itext('/data/size_of_the_farm:option0')"/>
+        <value>small</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/size_of_the_farm:option1')"/>
+        <value>medium</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/size_of_the_farm:option2')"/>
+        <value>large</value>
+      </item>
+    </select1>
+    <input ref="/data/number_of_employees">
+      <label ref="jr:itext('/data/number_of_employees:label')"/>
+    </input>
+  </h:body>
+</h:html>
